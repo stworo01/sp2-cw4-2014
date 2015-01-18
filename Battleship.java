@@ -10,4 +10,13 @@ package stworo01;
  */
 public class Battleship extends Ship{
 
+	/**
+	 * 
+	 */
+	public Battleship() {
+		super();
+		length = 4;
+	}
+	
+
 }
