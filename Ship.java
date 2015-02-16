@@ -12,60 +12,68 @@ public class Ship {
 	protected int bowRow;
 	protected int bowColumn;
 	protected int length;
-	protected boolean horizontal;
+	protected boolean isHorizontal;
 	protected boolean[] hit = new boolean[length];
 	protected String shipType;
 
-	
-	
-	
-
 	// Getters and Setters
 	
-	
 	/**
-	 * @return the bowRow
+	 * Get the position of the ships Bow row
+	 * @return bowRow
 	 */
 	public int getBowRow() {
 		return bowRow;
 	}
 	
 	/**
+	 * Sets the position of the ships Bow row
 	 * @param bowRow 	 */
 	public void setBowRow(int bowRow) {
 		this.bowRow = bowRow;
 	}
 	/**
+	 * Gets the position of the ships bow column
 	 * @return the bowColumn
 	 */
 	public int getBowColumn() {
 		return bowColumn;
 	}
 	/**
+	 * Sets the position of the ships bow column
 	 * @param bowColumn 
 	 */
 	public void setBowColumn(int bowColumn) {
 		this.bowColumn = bowColumn;
 	}
 	/**
+	 * Returns true if the ship is oriented horizontally
+	 * otherwise returns false
 	 * @return the isHorizontal
 	 */
-	public boolean horizontal() {
-		return horizontal;
+	public boolean isHorizontal() {
+		return isHorizontal;
 	}
 	/**
-	 * @param horizontal 
+	 * Sets the value of isHorizontal to true
+	 * @param isHorizontal 
 	 */
-	public void setHorizontal(boolean horizontal) {
-		this.horizontal = horizontal;
+	public void setHorizontal(boolean isHorizontal) {
+		this.isHorizontal = true;
 	}
 	/**
-	 * 
+	 * Get the type of ship 
+	 * @return shipType
 	 */
 	public String getShipType() {
 		return shipType;
 	}
-	
+	/**
+	 * Gets the length of the ship
+	 */
+	public int getLength() {
+		return length;
+	}
 
 	// Instance methods
 	/**
@@ -75,7 +83,7 @@ public class Ship {
 	 * @param horizontal
 	 * @return
 	 */
-	public boolean okToPlaceShipAt(int row, int column,boolean horizontal) {
+	public boolean okToPlaceShipAt(int row, int column,boolean horizontal, Ocean ocean) {
 		return false;
 		
 		
