@@ -1,10 +1,7 @@
-/**
- * 
- */
 package stworo01;
 
 /**
- * @author stefan_1
+ * @author Stefan Tworogal
  *
  */
 public class Ship {
@@ -12,7 +9,7 @@ public class Ship {
 	protected int bowRow;
 	protected int bowColumn;
 	protected int length;
-	protected boolean isHorizontal;
+	protected boolean horizontal;
 	protected boolean[] hit = new boolean[length];
 	protected String shipType;
 
@@ -52,14 +49,14 @@ public class Ship {
 	 * @return the isHorizontal
 	 */
 	public boolean isHorizontal() {
-		return isHorizontal;
+		return horizontal;
 	}
 	/**
 	 * Sets the value of isHorizontal to true
 	 * @param isHorizontal 
 	 */
-	public void setHorizontal(boolean isHorizontal) {
-		this.isHorizontal = true;
+	public void setHorizontal(boolean horizontal) {
+		this.horizontal = true;
 	}
 	/**
 	 * Get the type of ship 
@@ -84,7 +81,9 @@ public class Ship {
 	 * @return
 	 */
 	public boolean okToPlaceShipAt(int row, int column,boolean horizontal, Ocean ocean) {
+		
 		return false;
+		
 		
 		
 		

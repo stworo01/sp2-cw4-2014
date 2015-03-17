@@ -1,10 +1,7 @@
-/**
- * 
- */
 package stworo01;
 
 /**
- * @author stefan_1
+ * @author Stefan Tworogal
  *
  */
 public class BattleshipGame {

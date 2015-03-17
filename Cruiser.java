@@ -1,11 +1,8 @@
-/**
- * 
- */
 package stworo01;
 
 /**
  * A ship of length 3
- * @author stefan_1
+ * @author Stefan Tworogal
  *
  */
 public class Cruiser extends Ship {
@@ -17,6 +14,7 @@ public class Cruiser extends Ship {
 	public Cruiser() {
 		super();
 		length = 3;
+		shipType = "Cruiser";
 	}
 	
 	

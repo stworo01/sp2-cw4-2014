@@ -18,6 +18,7 @@ public class Submarine extends Ship {
 	public Submarine() {
 		super();
 		length = 1;
+		shipType = "Submarine";
 	}
 	
 	
