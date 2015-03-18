@@ -1,8 +1,12 @@
-package stworo01;
-
+package testing;
 import static org.junit.Assert.*;
-
 import org.junit.Test;
+import stworo01.Battleship;
+import stworo01.Cruiser;
+import stworo01.Destroyer;
+import stworo01.Ocean;
+import stworo01.Ship;
+import stworo01.Submarine;
 
 public class ShipTest {
 
@@ -13,7 +17,7 @@ public class ShipTest {
 		Ship a = new Ship();
 		a.setBowRow(testBowRow);
 		int actualOutput = a.getBowRow();
-		assertEquals("Wrong Answer",expectedOutput,actualOutput);
+		assertEquals("Wrong Answer", expectedOutput, actualOutput);
 	}
 
 	@Test
@@ -62,6 +66,7 @@ public class ShipTest {
 		String actual = f.getShipType();
 		assertEquals("Wrong Answer", expected, actual);
 	}
+
 	@Test
 	public void testGetShipType2() {
 		Cruiser f = new Cruiser();
@@ -69,6 +74,7 @@ public class ShipTest {
 		String actual = f.getShipType();
 		assertEquals("Wrong Answer", expected, actual);
 	}
+
 	@Test
 	public void testGetShipType3() {
 		Destroyer f = new Destroyer();
@@ -76,6 +82,7 @@ public class ShipTest {
 		String actual = f.getShipType();
 		assertEquals("Wrong Answer", expected, actual);
 	}
+
 	@Test
 	public void testGetShipType4() {
 		Submarine f = new Submarine();
@@ -84,8 +91,6 @@ public class ShipTest {
 		assertEquals("Wrong Answer", expected, actual);
 	}
 
-
-
 	@Test
 	public void testGetLength() {
 		Battleship g = new Battleship();
@@ -93,6 +98,7 @@ public class ShipTest {
 		int actual = g.getLength();
 		assertEquals("Wrong Answer", expected, actual);
 	}
+
 	@Test
 	public void testGetLength2() {
 		Cruiser g = new Cruiser();
@@ -100,6 +106,7 @@ public class ShipTest {
 		int actual = g.getLength();
 		assertEquals("Wrong Answer", expected, actual);
 	}
+
 	@Test
 	public void testGetLength3() {
 		Destroyer g = new Destroyer();
@@ -107,6 +114,7 @@ public class ShipTest {
 		int actual = g.getLength();
 		assertEquals("Wrong Answer", expected, actual);
 	}
+
 	@Test
 	public void testGetLength4() {
 		Submarine g = new Submarine();
@@ -114,6 +122,7 @@ public class ShipTest {
 		int actual = g.getLength();
 		assertEquals("Wrong Answer", expected, actual);
 	}
+
 	@Test
 	public void testOkToPlaceShipAt() {
 		Battleship h = new Battleship();

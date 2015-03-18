@@ -6,18 +6,15 @@ package stworo01;
  * @author Stefan Tworogal
  *
  */
-public class Destroyer extends Ship{
+public class Destroyer extends Ship {
 
 	/**
-	 * Construct an instance of a class
-	 * Destroyer with ship length 2
+	 * Construct an instance of a class Destroyer with ship length 2
 	 */
 	public Destroyer() {
 		super();
 		length = 2;
 		shipType = "Destroyer";
 	}
-
-	
 
 }

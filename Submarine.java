@@ -12,17 +12,12 @@ package stworo01;
 public class Submarine extends Ship {
 
 	/**
-	 * Construct an instance of class
-	 * Submarine with ship length 1.
+	 * Construct an instance of class Submarine with ship length 1.
 	 */
 	public Submarine() {
 		super();
 		length = 1;
 		shipType = "Submarine";
 	}
-	
-	
-	
-	
 
 }

@@ -13,5 +13,4 @@ public class BattleshipGame {
 		// TODO Auto-generated method stub
 
 	}
-
 }

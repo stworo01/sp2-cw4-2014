@@ -5,7 +5,7 @@ package stworo01;
  *
  */
 public class Ship {
-// instance variables
+	// instance variables
 	protected int bowRow;
 	protected int bowColumn;
 	protected int length;
@@ -14,57 +14,70 @@ public class Ship {
 	protected String shipType;
 
 	// Getters and Setters
-	
+
 	/**
 	 * Get the position of the ships Bow row
+	 * 
 	 * @return bowRow
 	 */
 	public int getBowRow() {
 		return bowRow;
 	}
-	
+
 	/**
 	 * Sets the position of the ships Bow row
-	 * @param bowRow 	 */
+	 * 
+	 * @param bowRow
+	 */
 	public void setBowRow(int bowRow) {
 		this.bowRow = bowRow;
 	}
+
 	/**
 	 * Gets the position of the ships bow column
+	 * 
 	 * @return the bowColumn
 	 */
 	public int getBowColumn() {
 		return bowColumn;
 	}
+
 	/**
 	 * Sets the position of the ships bow column
-	 * @param bowColumn 
+	 * 
+	 * @param bowColumn
 	 */
 	public void setBowColumn(int bowColumn) {
 		this.bowColumn = bowColumn;
 	}
+
 	/**
-	 * Returns true if the ship is oriented horizontally
-	 * otherwise returns false
+	 * Returns true if the ship is oriented horizontally otherwise returns false
+	 * 
 	 * @return the isHorizontal
 	 */
 	public boolean isHorizontal() {
 		return horizontal;
 	}
+
 	/**
 	 * Sets the value of isHorizontal to true
-	 * @param isHorizontal 
+	 * 
+	 * @param isHorizontal
 	 */
 	public void setHorizontal(boolean horizontal) {
 		this.horizontal = true;
 	}
+
 	/**
-	 * Get the type of ship 
+	 * Get the type of ship
+	 * 
 	 * @return shipType
 	 */
 	public String getShipType() {
 		return shipType;
 	}
+
 	/**
 	 * Gets the length of the ship
 	 */
@@ -80,14 +93,12 @@ public class Ship {
 	 * @param horizontal
 	 * @return
 	 */
-	public boolean okToPlaceShipAt(int row, int column,boolean horizontal, Ocean ocean) {
-		
+	public boolean okToPlaceShipAt(int row, int column, boolean horizontal,
+			Ocean ocean) {
+
 		return false;
-		
-		
-		
-		
 	}
+
 	/**
 	 * 
 	 * @param row
@@ -98,6 +109,7 @@ public class Ship {
 	public void placeShipAt(int row, int column, boolean horizontal, Ocean ocean) {
 		// complete
 	}
+
 	/**
 	 * 
 	 * @param row
@@ -108,6 +120,7 @@ public class Ship {
 		// complete
 		return false;
 	}
+
 	/**
 	 * 
 	 * @return
@@ -116,14 +129,4 @@ public class Ship {
 		// complete
 		return false;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
