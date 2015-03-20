@@ -2,19 +2,18 @@ package stworo01;
 
 /**
  * @author Stefan Tworogal
- *
+ * @version 20/03/15
  */
 public class Ship {
 	// instance variables
-	protected int bowRow;
-	protected int bowColumn;
+	private int bowRow;
+	private int bowColumn;
 	protected int length;
-	protected boolean horizontal;
+	private boolean horizontal;
 	protected boolean[] hit = new boolean[length];
 	protected String shipType;
-
+	
 	// Getters and Setters
-
 	/**
 	 * Get the position of the ships Bow row
 	 * 
@@ -54,23 +53,23 @@ public class Ship {
 	/**
 	 * Returns true if the ship is oriented horizontally otherwise returns false
 	 * 
-	 * @return the isHorizontal
+	 * @return horizontal
 	 */
 	public boolean isHorizontal() {
 		return horizontal;
 	}
 
 	/**
-	 * Sets the value of isHorizontal to true
+	 * Sets the boolean value of horizontal to true
 	 * 
-	 * @param isHorizontal
+	 * @param horizontal
 	 */
 	public void setHorizontal(boolean horizontal) {
 		this.horizontal = true;
 	}
 
 	/**
-	 * Get the type of ship
+	 * Gets the String variable shipType
 	 * 
 	 * @return shipType
 	 */
@@ -79,11 +78,13 @@ public class Ship {
 	}
 
 	/**
-	 * Gets the length of the ship
+	 * Gets the value of the variable length of the ship
+	 * @return length
 	 */
 	public int getLength() {
 		return length;
 	}
+	
 
 	// Instance methods
 	/**
@@ -95,6 +96,7 @@ public class Ship {
 	 */
 	public boolean okToPlaceShipAt(int row, int column, boolean horizontal,
 			Ocean ocean) {
+		//TODO
 
 		return false;
 	}
@@ -107,7 +109,7 @@ public class Ship {
 	 * @param ocean
 	 */
 	public void placeShipAt(int row, int column, boolean horizontal, Ocean ocean) {
-		// complete
+		//TODO
 	}
 
 	/**
@@ -117,7 +119,7 @@ public class Ship {
 	 * @return
 	 */
 	public boolean shootAt(int row, int column) {
-		// complete
+		//TODO
 		return false;
 	}
 
@@ -126,7 +128,7 @@ public class Ship {
 	 * @return
 	 */
 	public boolean isSunk() {
-		// complete
+		//TODO
 		return false;
 	}
 }

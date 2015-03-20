@@ -7,11 +7,14 @@ package stworo01;
 public class Ocean {
 	// instance variables
 	Ship[][] ships = new Ship[10][10];
-	int shotsFired;
-	int hitCount;
-	int shipsSunk;
+	private int shotsFired;
+	private int hitCount;
+	private int shipsSunk;
 
-	// construct
+	/** 
+	 * Constructs the emptySea and sets variables to defaults
+	 * 
+	 */
 	public Ocean() {
 		createEmptySea();
 		shotsFired = 0;
@@ -39,7 +42,7 @@ public class Ocean {
 	 * before smaller ones.
 	 */
 	public void placeAllShipsRandomly() {
-
+		//TODO
 	}
 
 	/**
@@ -48,6 +51,7 @@ public class Ocean {
 	 * @return true if location contains a ship otherwise returns false.
 	 */
 	public boolean isOccupied(int row, int column) {
+		//TODO
 		return false;
 	}
 
@@ -59,18 +63,20 @@ public class Ocean {
 	 */
 
 	public boolean shootAt(int row, int column) {
+		//TODO
 		return false;
 	}
 
 	/**
 	 * method gets the number of shots fired.
+	 * @return shotsFired
 	 */
 	public int getShotsFired() {
 		return shotsFired;
 	}
 
 	/**
-	 * method gets the number of hits
+	 * method gets and returns the number of hits
 	 * 
 	 * @return hitCount
 	 */
@@ -79,7 +85,7 @@ public class Ocean {
 	}
 
 	/**
-	 * method that gets the number of ships sunk
+	 * method that gets and returns the number of ships sunk
 	 * 
 	 * @return shipsSunk
 	 */
@@ -94,6 +100,7 @@ public class Ocean {
 	 * 
 	 */
 	public boolean isGameOver() {
+		//TODO
 		return false;
 	}
 
@@ -110,6 +117,7 @@ public class Ocean {
 	 * method prints out the Ocean
 	 */
 	public void print() {
+		//TODO
 
 	}
 
