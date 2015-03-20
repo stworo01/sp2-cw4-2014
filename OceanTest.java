@@ -21,6 +21,7 @@ public class OceanTest {
 		Ocean addobj = new Ocean();
 		int expectedOutput = 1;
 		Ship[][] actualOutput = addobj.getShipArray();
+		int expectedCountOutput = 100;
 		int count = 0;
 		for (int i = 0; i < actualOutput.length; i++) {
 			for (int j = 0; j < actualOutput.length; j++) {
@@ -29,7 +30,7 @@ public class OceanTest {
 				count++;
 			}
 		}
-		System.out.print(count);// confirm checked whole array 
+		assertEquals("Wrong Count", expectedCountOutput, count);
 	}
 
 }
