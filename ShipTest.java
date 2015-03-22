@@ -126,14 +126,26 @@ public class ShipTest {
 	@Test
 	public void testOkToPlaceShipAt() {
 		Battleship h = new Battleship();
-		Ocean o = new Ocean();
-		boolean actual = h.okToPlaceShipAt(1, 2, true, o);
+		Ocean ocean = new Ocean();
+		int row = 1;
+		int column = 2;
+		boolean horizontal = true;
+		boolean actual = h.okToPlaceShipAt(row, column, horizontal, ocean);
 		assertTrue("Wrong Answer", actual);
 	}
 
 	@Test
 	public void testPlaceShipAt() {
-		fail("Not yet implemented");
+		Ocean ocean = new Ocean();
+		Destroyer d = new Destroyer();
+		int row = 4;
+		int column = 4;
+		boolean horizontal = true;
+		d.placeShipAt(row, column, horizontal, ocean);
+		Ship actualShipArray[][]  = ocean.getShipArray();
+		String actual = actualShipArray[row][column].getShipType();
+		String expected = "Submarine";
+		assertEquals("Wrong Answer", actual, expected);
 	}
 
 	@Test
