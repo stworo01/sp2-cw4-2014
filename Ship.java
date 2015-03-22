@@ -12,7 +12,7 @@ public class Ship {
 	private boolean horizontal;
 	protected boolean[] hit = new boolean[length];
 	protected String shipType;
-	
+
 	// Getters and Setters
 	/**
 	 * Get the position of the ships Bow row
@@ -79,12 +79,12 @@ public class Ship {
 
 	/**
 	 * Gets the value of the variable length of the ship
+	 * 
 	 * @return length
 	 */
 	public int getLength() {
 		return length;
 	}
-	
 
 	// Instance methods
 	/**
@@ -96,12 +96,15 @@ public class Ship {
 	 */
 	public boolean okToPlaceShipAt(int row, int column, boolean horizontal,
 			Ocean ocean) {
-		//TODO
+		// TODO
 
 		return false;
 	}
 
 	/**
+	 * Method that places ship at position given by parameters row, column and
+	 * orientation given by boolean horizontal. Places objects, that point to
+	 * bow in the adjacent elements dependent on the length() of the ship.
 	 * 
 	 * @param row
 	 * @param column
@@ -109,7 +112,26 @@ public class Ship {
 	 * @param ocean
 	 */
 	public void placeShipAt(int row, int column, boolean horizontal, Ocean ocean) {
-		//TODO
+		int rowBound;
+		int columnBound;
+		// Set the orientation of the ship
+		if (horizontal) {
+			columnBound = this.getLength();
+			rowBound = 1;
+		} else {
+			rowBound = this.getLength();
+			columnBound = 1;
+		}
+		for (int i = 0; i < rowBound; i++) {
+			for (int j = 0; j < columnBound; j++) {
+				int tempRow = row + i;
+				int tempColumn = column + j;
+				ocean.getShipArray()[tempRow][tempColumn] = this;
+				this.setBowRow(row);
+				this.setBowColumn(column);
+				this.setHorizontal(horizontal);
+			}
+		}
 	}
 
 	/**
@@ -119,7 +141,7 @@ public class Ship {
 	 * @return
 	 */
 	public boolean shootAt(int row, int column) {
-		//TODO
+		// TODO
 		return false;
 	}
 
@@ -128,7 +150,7 @@ public class Ship {
 	 * @return
 	 */
 	public boolean isSunk() {
-		//TODO
+		// TODO
 		return false;
 	}
 }
