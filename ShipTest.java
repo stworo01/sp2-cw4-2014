@@ -1,4 +1,5 @@
 package testing;
+
 import static org.junit.Assert.*;
 import org.junit.Test;
 import stworo01.Battleship;
@@ -142,9 +143,61 @@ public class ShipTest {
 		int column = 4;
 		boolean horizontal = true;
 		d.placeShipAt(row, column, horizontal, ocean);
-		Ship actualShipArray[][]  = ocean.getShipArray();
+		Ship actualShipArray[][] = ocean.getShipArray();
 		String actual = actualShipArray[row][column].getShipType();
-		String expected = "Submarine";
+		String expected = "Destroyer";
+		assertEquals("Wrong Answer", actual, expected);
+
+	}
+
+	@Test
+	public void testPlaceShipAt2() {
+		Ocean ocean = new Ocean();
+		Destroyer d = new Destroyer();
+		int row = 4;
+		int column = 4;
+		boolean horizontal = true;
+		d.placeShipAt(row, column, horizontal, ocean);
+		Ship actualShipArray[][] = ocean.getShipArray();
+		String actual = actualShipArray[row][column + 1].getShipType();
+		String expected = "Destroyer";
+
+		assertEquals("Wrong Answer", actual, expected);
+
+	}
+/*
+ * Test that objects are placed along the length of the ship
+ */
+	@Test
+	public void testPlaceShipAt3() {
+		Ocean ocean = new Ocean();
+		Battleship b = new Battleship();
+		int row = 4;
+		int column = 4;
+		boolean horizontal = true;
+		b.placeShipAt(row, column, horizontal, ocean);
+		Ship actualShipArray[][] = ocean.getShipArray();
+		String actual = actualShipArray[row][column + 3].getShipType();
+		String expected = "Battleship";
+		assertEquals("Wrong Answer", actual, expected);
+
+	}
+
+	/*
+	 * Test that elements along the length of ship point to correct bow position
+	 */
+
+	@Test
+	public void testPlaceShipAt4() {
+		Ocean ocean = new Ocean();
+		Battleship b = new Battleship();
+		int row = 4;
+		int column = 4;
+		boolean horizontal = true;
+		b.placeShipAt(row, column, horizontal, ocean);
+		Ship actualShipArray[][] = ocean.getShipArray();
+		int actual = actualShipArray[row][column + 1].getBowRow();
+		int expected = 4;
 		assertEquals("Wrong Answer", actual, expected);
 	}
 
