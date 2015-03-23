@@ -6,7 +6,7 @@ package stworo01;
 /**
  * A ship of length 1
  * 
- * @author stefan_1
+ * @author Stefan Tworogal
  *
  */
 public class Submarine extends Ship {
@@ -17,7 +17,13 @@ public class Submarine extends Ship {
 	public Submarine() {
 		super();
 		length = 1;
-		shipType = "Submarine";
+		
+	}
+	@Override public String toString() {
+		return "S";
+	}
+	@Override public String getShipType() {
+		return "Submarine";
 	}
 
 }

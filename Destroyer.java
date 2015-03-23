@@ -14,7 +14,14 @@ public class Destroyer extends Ship {
 	public Destroyer() {
 		super();
 		length = 2;
-		shipType = "Destroyer";
+		
+	}
+	
+	@Override public String toString() {
+		return "D";
+	}
+	@Override public String getShipType() {
+		return "Destroyer";
 	}
 
 }
