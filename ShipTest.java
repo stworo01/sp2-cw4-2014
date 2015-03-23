@@ -182,7 +182,19 @@ public class ShipTest {
 		assertEquals("Wrong Answer", actual, expected);
 
 	}
-
+	@Test 
+	public void testPlaceShipAt5() {
+		Ocean ocean = new Ocean();
+		Battleship b = new Battleship();
+		int row = 4;
+		int column = 4;
+		boolean horizontal = false;
+		b.placeShipAt(row, column, horizontal, ocean);
+		Ship actualShipArray[][] = ocean.getShipArray();
+		String actual = actualShipArray[row + 3][column].getShipType();
+		String expected = "Battleship";
+		assertEquals("Wrong Answer", actual, expected);
+	}
 	/*
 	 * Test that elements along the length of ship point to correct bow position
 	 */
