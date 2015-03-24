@@ -215,12 +215,26 @@ public class ShipTest {
 
 	@Test
 	public void testShootAt() {
-		fail("Not yet implemented");
+		Ocean ocean = new Ocean();
+		Battleship b = new Battleship();
+		b.placeShipAt(4, 4, true, ocean);
+		boolean actual = b.shootAt(4, 4);
+		assertTrue("Wrong Answer", actual);
 	}
+	
 
 	@Test
 	public void testIsSunk() {
-		fail("Not yet implemented");
+		Ocean ocean = new Ocean();
+		Cruiser c = new Cruiser();
+		int row = 4;
+		int column = 4;
+		boolean horizontal = true;
+		c.placeShipAt(row, column, horizontal,ocean);
+		c.shootAt(row, column);
+		c.shootAt(row, column + 1);
+		c.shootAt(row, column + 2);
+		assertTrue("Wrong answer", c.isSunk());
 	}
 
 }
