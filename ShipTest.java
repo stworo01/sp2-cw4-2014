@@ -218,6 +218,7 @@ public class ShipTest {
 		Ocean ocean = new Ocean();
 		Battleship b = new Battleship();
 		b.placeShipAt(4, 4, true, ocean);
+
 		boolean actual = b.shootAt(4, 4);
 		assertTrue("Wrong Answer", actual);
 	}
