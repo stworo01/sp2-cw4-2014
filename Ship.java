@@ -10,8 +10,7 @@ public class Ship {
 	private int bowColumn;
 	protected int length;
 	private boolean horizontal;
-	protected boolean[] hit = new boolean[length];
-	protected String shipType;
+	protected boolean[] hit = new boolean[4];
 
 	// Getters and Setters
 	/**
@@ -74,7 +73,7 @@ public class Ship {
 	 * @return shipType
 	 */
 	public String getShipType() {
-		return shipType;
+		return null;
 	}
 
 	/**
@@ -104,7 +103,7 @@ public class Ship {
 	/**
 	 * Method that places ship at position given by parameters row, column and
 	 * orientation given by boolean horizontal. Places objects, that point to
-	 * bow in the adjacent elements dependent on the length() of the ship.
+	 * bow in the adjacent elements depending on the length() of the ship.
 	 * 
 	 * @param row
 	 * @param column
@@ -135,13 +134,31 @@ public class Ship {
 	}
 
 	/**
+	 * Method that takes the parameters row and column, checks if there is a
+	 * ship at that position and if there is that the ship has not been sunk. It
+	 * then updates the hit array and returns true. If there is no ship at that
+	 * location it returns false. REFERENCE: "EmptySea.class.isInstance(this)"
+	 * the idea for this code came from discussion forum.
+	 * http://stackoverflow.com/questions/541749/how-to-determine
+	 * -an-objects-class-in-java
 	 * 
 	 * @param row
 	 * @param column
-	 * @return
+	 * @return true if there is a ship that has not been sunk else false.
 	 */
 	public boolean shootAt(int row, int column) {
-		// TODO
+		int bowRow = this.getBowRow();
+		int bowColumn = this.getBowColumn();
+		boolean gate = this.isHorizontal();
+		if (!EmptySea.class.isInstance(this) || isSunk()) { // SEE REFERENCE
+			if (gate) {
+				this.hit[bowColumn - column] = true;
+				return true;
+			} else {
+				this.hit[bowRow - row] = true;
+				return true;
+			}
+		}
 		return false;
 	}
 
