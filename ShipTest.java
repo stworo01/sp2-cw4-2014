@@ -165,9 +165,10 @@ public class ShipTest {
 		assertEquals("Wrong Answer", actual, expected);
 
 	}
-/*
- * Test that objects are placed along the length of the ship
- */
+
+	/*
+	 * Test that objects are placed along the length of the ship
+	 */
 	@Test
 	public void testPlaceShipAt3() {
 		Ocean ocean = new Ocean();
@@ -182,7 +183,8 @@ public class ShipTest {
 		assertEquals("Wrong Answer", actual, expected);
 
 	}
-	@Test 
+
+	@Test
 	public void testPlaceShipAt5() {
 		Ocean ocean = new Ocean();
 		Battleship b = new Battleship();
@@ -195,6 +197,7 @@ public class ShipTest {
 		String expected = "Battleship";
 		assertEquals("Wrong Answer", actual, expected);
 	}
+
 	/*
 	 * Test that elements along the length of ship point to correct bow position
 	 */
@@ -218,11 +221,18 @@ public class ShipTest {
 		Ocean ocean = new Ocean();
 		Battleship b = new Battleship();
 		b.placeShipAt(4, 4, true, ocean);
-
 		boolean actual = b.shootAt(4, 4);
 		assertTrue("Wrong Answer", actual);
 	}
-	
+
+	@Test
+	public void testShootAt2() {
+		Ocean ocean = new Ocean();
+		Battleship b = new Battleship();
+		b.placeShipAt(4, 4, true, ocean);
+		boolean actual = b.shootAt(4, 5);
+		assertTrue("Wrong Answer", actual);
+	}
 
 	@Test
 	public void testIsSunk() {
@@ -231,11 +241,18 @@ public class ShipTest {
 		int row = 4;
 		int column = 4;
 		boolean horizontal = true;
-		c.placeShipAt(row, column, horizontal,ocean);
+		c.placeShipAt(row, column, horizontal, ocean);
 		c.shootAt(row, column);
 		c.shootAt(row, column + 1);
 		c.shootAt(row, column + 2);
-		assertTrue("Wrong answer", c.isSunk());
+		boolean actual = c.isSunk();
+		System.out.println(c.getLength());
+		System.out.println(c.getBowRow());
+		System.out.println(c.getBowColumn());
+		System.out.println(c.isHorizontal());
+		System.out.println(c.isSunk());
+
+		assertTrue("Wrong answer", actual);
 	}
 
 }

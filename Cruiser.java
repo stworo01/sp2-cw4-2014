@@ -14,13 +14,16 @@ public class Cruiser extends Ship {
 	public Cruiser() {
 		super();
 		length = 3;
-		
+
 	}
-	
-	@Override public String toString() {
+
+	@Override
+	public String toString() {
 		return "C";
 	}
-	@Override public String getShipType() {
+
+	@Override
+	public String getShipType() {
 		return "Cruiser";
 	}
 }

@@ -14,13 +14,16 @@ public class Battleship extends Ship {
 	public Battleship() {
 		super();
 		length = 4;
-		
+
 	}
-	
-	@Override public String toString() {
+
+	@Override
+	public String toString() {
 		return "B";
 	}
-	@Override public String getShipType() {
+
+	@Override
+	public String getShipType() {
 		return "Battleship";
 	}
 }

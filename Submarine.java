@@ -17,12 +17,16 @@ public class Submarine extends Ship {
 	public Submarine() {
 		super();
 		length = 1;
-		
+
 	}
-	@Override public String toString() {
+
+	@Override
+	public String toString() {
 		return "S";
 	}
-	@Override public String getShipType() {
+
+	@Override
+	public String getShipType() {
 		return "Submarine";
 	}
 

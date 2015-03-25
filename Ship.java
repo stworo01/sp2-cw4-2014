@@ -150,12 +150,12 @@ public class Ship {
 		int bowRow = this.getBowRow();
 		int bowColumn = this.getBowColumn();
 		boolean gate = this.isHorizontal();
-		if (!EmptySea.class.isInstance(this) || isSunk()) { // SEE REFERENCE
+		if (!EmptySea.class.isInstance(this) || !isSunk()) { // SEE REFERENCE
 			if (gate) {
-				this.hit[bowColumn - column] = true;
+				this.hit[bowRow - row] = true;
 				return true;
 			} else {
-				this.hit[bowRow - row] = true;
+				this.hit[bowColumn - column] = true;
 				return true;
 			}
 		}
@@ -167,7 +167,15 @@ public class Ship {
 	 * @return
 	 */
 	public boolean isSunk() {
-		// TODO
-		return false;
+		int length = this.getLength();
+		boolean flag = false;
+		for (int i = 0; i < length - 1; i++) {
+			if (this.hit[i]) {
+				flag = true;
+			} else {
+				flag = false;
+			}
+		}
+		return flag;
 	}
 }
