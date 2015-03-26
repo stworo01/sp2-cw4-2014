@@ -147,19 +147,19 @@ public class Ship {
 	 * @return true if there is a ship that has not been sunk else false.
 	 */
 	public boolean shootAt(int row, int column) {
-		int bowRow = this.getBowRow();
-		int bowColumn = this.getBowColumn();
-		boolean gate = this.isHorizontal();
-		if (!EmptySea.class.isInstance(this) || !isSunk()) { // SEE REFERENCE
-			if (gate) {
-				this.hit[bowRow - row] = true;
+		int tempRow = getBowRow();
+		int tempColumn = getBowColumn();
+		if (!isSunk() || !EmptySea.class.isInstance(this)) {
+			if (this.isHorizontal()) {
+				this.hit[column - tempColumn] = true;
 				return true;
 			} else {
-				this.hit[bowColumn - column] = true;
+				this.hit[row - tempRow] = true;
 				return true;
 			}
 		}
 		return false;
+
 	}
 
 	/**
