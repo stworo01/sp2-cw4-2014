@@ -64,7 +64,7 @@ public class Ship {
 	 * @param horizontal
 	 */
 	public void setHorizontal(boolean horizontal) {
-		this.horizontal = true;
+		this.horizontal = horizontal;
 	}
 
 	/**
@@ -121,6 +121,8 @@ public class Ship {
 			rowBound = this.getLength();
 			columnBound = 1;
 		}
+		// Fill shipArray to ship length with ship objects, but with position
+		// pointing to bow
 		for (int i = 0; i < rowBound; i++) {
 			for (int j = 0; j < columnBound; j++) {
 				int tempRow = row + i;
@@ -150,11 +152,11 @@ public class Ship {
 		int tempRow = getBowRow();
 		int tempColumn = getBowColumn();
 		if (!isSunk() || !EmptySea.class.isInstance(this)) {
-			if (this.isHorizontal()) {
-				this.hit[column - tempColumn] = true;
+			if (isHorizontal()) {
+				this.hit[column - tempColumn] = true; // update hit array
 				return true;
 			} else {
-				this.hit[row - tempRow] = true;
+				this.hit[row - tempRow] = true; // update hit array
 				return true;
 			}
 		}
@@ -163,19 +165,29 @@ public class Ship {
 	}
 
 	/**
+	 * Method that checks the hit array, if the hit array is true for each
+	 * element that represents the bow and other parts of the ship it returns
+	 * true otherwise returns false.
 	 * 
-	 * @return
+	 * @return true is ship is sunk, otherwise false.
 	 */
 	public boolean isSunk() {
 		int length = this.getLength();
 		boolean flag = false;
-		for (int i = 0; i < length - 1; i++) {
+		for (int i = 0; i < length - 1; i++) { // cycle through hit array
 			if (this.hit[i]) {
 				flag = true;
 			} else {
 				flag = false;
 			}
-		}
+		}// close for
 		return flag;
+	}
+
+	/**
+	 * @return the hit
+	 */
+	public boolean[] getHit() {
+		return hit;
 	}
 }
