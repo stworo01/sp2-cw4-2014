@@ -57,6 +57,14 @@ public class ShipTest {
 		boolean horizontal = false;
 		e.setHorizontal(horizontal);
 		boolean actualOutput = e.isHorizontal();
+		assertFalse("Wrong Answer", actualOutput);
+	}
+	@Test
+	public void testIsHorizontal2() {
+		Ship e = new Ship();
+		boolean horizontal = true;
+		e.setHorizontal(horizontal);
+		boolean actualOutput = e.isHorizontal();
 		assertTrue("Wrong Answer", actualOutput);
 	}
 
@@ -228,9 +236,19 @@ public class ShipTest {
 	@Test
 	public void testShootAt2() {
 		Ocean ocean = new Ocean();
-		Battleship b = new Battleship();
-		b.placeShipAt(4, 4, true, ocean);
-		boolean actual = b.shootAt(4, 5);
+		Battleship c = new Battleship();
+		c.placeShipAt(4, 4, true, ocean);
+		boolean actual = c.shootAt(4, 5);
+		assertTrue("Wrong Answer", actual);
+	}
+
+	// Test if ship is virtically positioned
+	@Test
+	public void testShootAt3() {
+		Ocean ocean = new Ocean();
+		Battleship c = new Battleship();
+		c.placeShipAt(4, 4, false, ocean);		
+		boolean actual = c.shootAt(5, 4);
 		assertTrue("Wrong Answer", actual);
 	}
 
@@ -246,12 +264,21 @@ public class ShipTest {
 		c.shootAt(row, column + 1);
 		c.shootAt(row, column + 2);
 		boolean actual = c.isSunk();
-		System.out.println(c.getLength());
-		System.out.println(c.getBowRow());
-		System.out.println(c.getBowColumn());
-		System.out.println(c.isHorizontal());
-		System.out.println(c.isSunk());
-
+		assertTrue("Wrong answer", actual);
+	}
+	
+	@Test
+	public void testIsSunk2() {
+		Ocean ocean = new Ocean();
+		Cruiser c = new Cruiser();
+		int row = 4;
+		int column = 4;
+		boolean horizontal = false;
+		c.placeShipAt(row, column, horizontal, ocean);
+		c.shootAt(row + 1, column);
+		c.shootAt(row, column);
+		c.shootAt(row + 2, column);
+		boolean actual = c.isSunk();
 		assertTrue("Wrong answer", actual);
 	}
 
