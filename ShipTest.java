@@ -1,10 +1,13 @@
 package testing;
 
 import static org.junit.Assert.*;
+
 import org.junit.Test;
+
 import stworo01.Battleship;
 import stworo01.Cruiser;
 import stworo01.Destroyer;
+import stworo01.EmptySea;
 import stworo01.Ocean;
 import stworo01.Ship;
 import stworo01.Submarine;
@@ -137,12 +140,34 @@ public class ShipTest {
 		Battleship h = new Battleship();
 		Ocean ocean = new Ocean();
 		int row = 1;
-		int column = 2;
+		int column = 1;
 		boolean horizontal = true;
 		boolean actual = h.okToPlaceShipAt(row, column, horizontal, ocean);
 		assertTrue("Wrong Answer", actual);
 	}
-
+	
+//	@Test
+//	public void testOkToPlaceShipAt2() {
+//		Battleship h = new Battleship();
+//		Ocean ocean = new Ocean();
+//		int row = 1;
+//		int column = 2;
+//		boolean horizontal = false;
+//		boolean actual = h.okToPlaceShipAt(row, column, horizontal, ocean);
+//		assertTrue("Wrong Answer", actual);
+//	}
+//	@Test
+//	public void testOkToPlaceShipAt3() {
+//		Battleship h = new Battleship();
+//		Battleship k = new Battleship();
+//		Ocean ocean = new Ocean();
+//		int row = 1;
+//		int column = 2;
+//		boolean horizontal = false;
+//		k.placeShipAt(1, 2, true, ocean);
+//		boolean actual = h.okToPlaceShipAt(row, column, horizontal, ocean);
+//		assertFalse("Wrong Answer", actual);
+//	}
 	@Test
 	public void testPlaceShipAt() {
 		Ocean ocean = new Ocean();
@@ -251,6 +276,15 @@ public class ShipTest {
 		boolean actual = c.shootAt(5, 4);
 		assertTrue("Wrong Answer", actual);
 	}
+	@Test
+	public void testShootAt4() {
+		Ocean ocean = new Ocean();
+		EmptySea c = new EmptySea();
+		c.placeShipAt(4, 4, false, ocean);		
+		boolean actual = c.shootAt(4, 4);
+		assertFalse("Wrong Answer", actual);
+	}
+	
 
 	@Test
 	public void testIsSunk() {

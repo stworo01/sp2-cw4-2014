@@ -87,15 +87,20 @@ public class Ship {
 
 	// Instance methods
 	/**
+	 * Method that checks the positions around the ship object to ensure 
+	 * that the position conforms to the rules of the game.
 	 * 
 	 * @param row
 	 * @param column
 	 * @param horizontal
-	 * @return
+	 * @return true
 	 */
 	public boolean okToPlaceShipAt(int row, int column, boolean horizontal,
 			Ocean ocean) {
-		// TODO
+		//ship at row/column?
+		if(this.getShipType().equals("EmptySea")) {
+			return true;
+		}
 
 		return false;
 	}
@@ -184,10 +189,4 @@ public class Ship {
 		return flag;
 	}
 
-	/**
-	 * @return the hit
-	 */
-	public boolean[] getHit() {
-		return hit;
-	}
 }
