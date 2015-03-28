@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import stworo01.Cruiser;
+import stworo01.EmptySea;
 import stworo01.Ocean;
 import stworo01.Ship;
 
@@ -50,7 +52,25 @@ public class OceanTest {
 
 	@Test
 	public void testIsOccupied() {
-		fail("Not yet implemented");
+		Ocean o = new Ocean();
+		o.createEmptySea();
+		int row = 3;
+		int column = 4;
+		boolean horizontal = false;
+		Cruiser c = new Cruiser();
+		c.placeShipAt(row, column, horizontal, o);
+		boolean actual = o.isOccupied(row, column);
+		assertTrue("wrong Answer", actual);
+	}
+	
+	@Test
+	public void testIsOccupied2() {
+		Ocean p = new Ocean();
+		p.createEmptySea();
+		int row = 3;
+		int column = 4;
+		boolean actual = p.isOccupied(row + 5, column + 5);
+		assertFalse("wrong Answer", actual);
 	}
 
 	@Test
