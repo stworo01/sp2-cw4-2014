@@ -46,13 +46,17 @@ public class Ocean {
 	}
 
 	/**
-	 * Method that checks if a location contains a ship
+	 * Method that checks if a location contains a legitimate ship.
 	 * 
 	 * @return true if location contains a ship otherwise returns false.
 	 */
 	public boolean isOccupied(int row, int column) {
-		//TODO
-		return false;
+		Ship s = this.ships[row][column];
+		if(s instanceof EmptySea) { // is it EmptyClass
+			return false;
+		} else {
+			return true;
+		}
 	}
 
 	/**
