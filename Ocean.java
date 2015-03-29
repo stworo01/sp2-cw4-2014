@@ -3,6 +3,13 @@ package stworo01;
 import java.util.Random;
 
 /**
+ * Class Ocean.
+ * Remaining issues: 1. placeAllShipsRandomly() -- this method is 
+ * throwing an intermittent out of bounds error duing testing. I have been unable
+ * to trace this error, it may be caused by an error in the Ship method
+ * okToPlaceShipAt. 
+ * 2. Not implemented: shootAt(int row, int column), print()
+ * 
  * @author Stefan Tworogal
  *
  */
@@ -13,7 +20,7 @@ public class Ocean {
 	private int hitCount;
 	private int shipsSunk;
 
-	/** 
+	/**
 	 * Constructs the emptySea and sets variables to defaults
 	 * 
 	 */
@@ -38,14 +45,15 @@ public class Ocean {
 		}
 		return ships;
 	}
-	
+
 	/**
 	 * Array of types of ship to be placed in empty ocean.
+	 * 
 	 * @return array of ships
 	 */
-	
+
 	public Ship[] fleetOfShips() {
-		Ship[]  typeOfShip= new Ship[10];
+		Ship[] typeOfShip = new Ship[10];
 		typeOfShip[0] = new Battleship();
 		typeOfShip[1] = new Cruiser();
 		typeOfShip[2] = new Cruiser();
@@ -67,14 +75,14 @@ public class Ocean {
 		Random r = new Random();
 		Ship[] launchShip = fleetOfShips();
 		boolean launched;
-		for( Ship s : launchShip) { // foreach type of ship
+		for (Ship s : launchShip) { // foreach type of ship
 			launched = false;
-			while(!launched) {
+			while (!launched) {
 				// random position and orientation.
 				int row = r.nextInt(9);
 				int column = r.nextInt(9);
 				boolean isHorizontal = r.nextBoolean();
-				if(s.okToPlaceShipAt(row, column, isHorizontal, this)) {
+				if (s.okToPlaceShipAt(row, column, isHorizontal, this)) {
 					s.placeShipAt(row, column, isHorizontal, this);
 					launched = true;
 				}
@@ -89,7 +97,7 @@ public class Ocean {
 	 */
 	public boolean isOccupied(int row, int column) {
 		Ship s = this.ships[row][column];
-		if(s instanceof EmptySea) { // is it EmptyClass
+		if (s instanceof EmptySea) { // is it EmptyClass
 			return false;
 		} else {
 			return true;
@@ -104,12 +112,13 @@ public class Ocean {
 	 */
 
 	public boolean shootAt(int row, int column) {
-		//TODO
+		// TODO
 		return false;
 	}
 
 	/**
 	 * method gets the number of shots fired.
+	 * 
 	 * @return shotsFired
 	 */
 	public int getShotsFired() {
@@ -141,7 +150,7 @@ public class Ocean {
 	 * 
 	 */
 	public boolean isGameOver() {
-		if(shipsSunk == 10) {
+		if (shipsSunk == 10) {
 			return true;
 		}
 		return false;
@@ -160,7 +169,7 @@ public class Ocean {
 	 * method prints out the Ocean
 	 */
 	public void print() {
-		//TODO
+		// TODO
 
 	}
 

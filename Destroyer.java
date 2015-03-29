@@ -1,7 +1,7 @@
 package stworo01;
 
 /**
- * A ship of length 2
+ * Class Destroyer extends Class Ship
  * 
  * @author Stefan Tworogal
  *

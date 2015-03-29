@@ -1,7 +1,7 @@
 package stworo01;
 
 /**
- * A ship of length 3
+ * Class Cruiser extends Class ship
  * 
  * @author Stefan Tworogal
  *

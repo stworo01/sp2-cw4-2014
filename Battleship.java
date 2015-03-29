@@ -1,11 +1,13 @@
 package stworo01;
 
 /**
- * A Ship of length 4
+ * Class Battleship extends Class Ship.
+ * 
  * 
  * @author Stefan Tworogal
  *
  */
+
 public class Battleship extends Ship {
 
 	/**

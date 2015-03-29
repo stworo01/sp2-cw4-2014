@@ -1,8 +1,11 @@
 package stworo01;
 
 /**
+ * Class BattleshipGame is the controlling class of the game It has not been
+ * implemented.
+ * 
  * @author Stefan Tworogal
- *
+ * 
  */
 public class BattleshipGame {
 
