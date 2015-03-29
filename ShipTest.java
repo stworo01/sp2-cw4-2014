@@ -146,28 +146,77 @@ public class ShipTest {
 		assertTrue("Wrong Answer", actual);
 	}
 	
-//	@Test
-//	public void testOkToPlaceShipAt2() {
-//		Battleship h = new Battleship();
-//		Ocean ocean = new Ocean();
-//		int row = 1;
-//		int column = 2;
-//		boolean horizontal = false;
-//		boolean actual = h.okToPlaceShipAt(row, column, horizontal, ocean);
-//		assertTrue("Wrong Answer", actual);
-//	}
-//	@Test
-//	public void testOkToPlaceShipAt3() {
-//		Battleship h = new Battleship();
-//		Battleship k = new Battleship();
-//		Ocean ocean = new Ocean();
-//		int row = 1;
-//		int column = 2;
-//		boolean horizontal = false;
-//		k.placeShipAt(1, 2, true, ocean);
-//		boolean actual = h.okToPlaceShipAt(row, column, horizontal, ocean);
-//		assertFalse("Wrong Answer", actual);
-//	}
+	@Test
+	public void testOkToPlaceShipAt2() {
+		Battleship h = new Battleship();
+		Ocean ocean = new Ocean();
+		int row = 1;
+		int column = 2;
+		boolean horizontal = false;
+		boolean actual = h.okToPlaceShipAt(row, column, horizontal, ocean);
+		assertTrue("Wrong Answer", actual);
+	}
+	@Test
+	public void testOkToPlaceShipAt3() {
+		Battleship h = new Battleship();
+		Battleship k = new Battleship();
+		Ocean ocean = new Ocean();
+		int row = 1;
+		int column = 2;
+		boolean horizontal = true;
+		k.placeShipAt(0, 2, horizontal, ocean);
+		boolean actual = h.okToPlaceShipAt(row, column, horizontal, ocean);
+		assertFalse("Wrong Answer", actual);
+	}
+	@Test
+	public void testOkToPlaceShipAt4() {
+		Battleship h = new Battleship();
+		Battleship k = new Battleship();
+		Ocean ocean = new Ocean();
+		int row = 1;
+		int column = 2;
+		boolean horizontal = false;
+		k.placeShipAt(1, 2, true, ocean);
+		boolean actual = h.okToPlaceShipAt(row, column, horizontal, ocean);
+		assertFalse("Wrong Answer", actual);
+	}
+	@Test
+	public void testOkToPlaceShipAt5() {
+		Battleship h = new Battleship();
+		Battleship k = new Battleship();
+		Ocean ocean = new Ocean();
+		int row = 1;
+		int column = 2;
+		boolean horizontal = true;
+		k.placeShipAt(row, column, false, ocean);
+		boolean actual = h.okToPlaceShipAt(row, column, horizontal, ocean);
+		assertFalse("Wrong Answer", actual);
+	}
+	@Test
+	public void testOkToPlaceShipAt6() {
+		Battleship h = new Battleship();
+		Battleship k = new Battleship();
+		Ocean ocean = new Ocean();
+		int row = 0;
+		int column = 0;
+		boolean horizontal = true;
+		k.placeShipAt(row, column, horizontal, ocean);
+		boolean actual = h.okToPlaceShipAt(row, column, horizontal, ocean);
+		assertFalse("Wrong Answer", actual);
+	}
+	@Test
+	public void testOkToPlaceShipAt7() {
+		Battleship h = new Battleship();
+		Battleship k = new Battleship();
+		Ocean ocean = new Ocean();
+		int row = 9;
+		int column = 4;
+		boolean horizontal = true;
+		k.placeShipAt(row, column, horizontal, ocean);
+		boolean actual = h.okToPlaceShipAt(row, column, horizontal, ocean);
+		assertFalse("Wrong Answer", actual);
+	}
+	
 	@Test
 	public void testPlaceShipAt() {
 		Ocean ocean = new Ocean();
