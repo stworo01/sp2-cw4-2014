@@ -1,5 +1,7 @@
 package stworo01;
 
+import java.util.Random;
+
 /**
  * @author Stefan Tworogal
  *
@@ -36,13 +38,48 @@ public class Ocean {
 		}
 		return ships;
 	}
+	
+	/**
+	 * Array of types of ship to be placed in empty ocean.
+	 * @return array of ships
+	 */
+	
+	public Ship[] fleetOfShips() {
+		Ship[]  typeOfShip= new Ship[10];
+		typeOfShip[0] = new Battleship();
+		typeOfShip[1] = new Cruiser();
+		typeOfShip[2] = new Cruiser();
+		typeOfShip[3] = new Destroyer();
+		typeOfShip[4] = new Destroyer();
+		typeOfShip[5] = new Destroyer();
+		typeOfShip[6] = new Submarine();
+		typeOfShip[7] = new Submarine();
+		typeOfShip[8] = new Submarine();
+		typeOfShip[9] = new Submarine();
+		return typeOfShip;
+	}
 
 	/**
 	 * Method that places 10 ships randomly on the Ocean, Places larger ships
 	 * before smaller ones.
 	 */
 	public void placeAllShipsRandomly() {
-		//TODO
+		Random r = new Random();
+		Ship[] launchShip = fleetOfShips();
+		boolean launched;
+		for( Ship s : launchShip) { // foreach type of ship
+			launched = false;
+			while(!launched) {
+				// random position and orientation.
+				int row = r.nextInt(9);
+				int column = r.nextInt(9);
+				boolean isHorizontal = r.nextBoolean();
+				if(s.okToPlaceShipAt(row, column, isHorizontal, this)) {
+					s.placeShipAt(row, column, isHorizontal, this);
+					launched = true;
+				}
+			}
+		}
 	}
 
 	/**
@@ -104,7 +141,9 @@ public class Ocean {
 	 * 
 	 */
 	public boolean isGameOver() {
-		//TODO
+		if(shipsSunk == 10) {
+			return true;
+		}
 		return false;
 	}
 

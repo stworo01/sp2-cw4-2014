@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import stworo01.Battleship;
 import stworo01.Cruiser;
 import stworo01.EmptySea;
 import stworo01.Ocean;
@@ -35,21 +36,59 @@ public class OceanTest {
 		Ocean o = new Ocean();
 		o.createEmptySea();
 		Ship[][] temp = o.getShipArray();
+		int battleship = 0;
 		for(int i = 0; i < 10; i++) {
 			for(int j = 0; j < 10; j++) {
-				String actual = temp[i][j].getShipType();
-				String expected = "EmptySea";
-				assertEquals("Wrong Answer", expected, actual);
+				Ship s = temp[i][j];
+				if (s instanceof Battleship) {
+					battleship++;
+					System.out.println(battleship);
+				}
 			}
-		}	
+			
+		}
+		
 	}
+				
+	
 
 
 	@Test
 	public void testPlaceAllShipsRandomly() {
-		fail("Not yet implemented");
+		Ocean o = new Ocean();
+		o.createEmptySea();
+		o.placeAllShipsRandomly();
+		Ship [][] temp = o.getShipArray();
+		int count = 0;
+		int expected = 6;
+		for(int i = 0; i < 9; i++) {
+			for(int j = 0; j < 9; j++) {
+				String actual = temp[i][j].getShipType();
+				if(actual.equals("Cruiser")) {
+					count++;
+				}				
+			}
+		}
+		assertEquals("wrong answer", expected, count);
 	}
-
+	@Test
+	public void testPlaceAllShipsRandomly2() {
+		Ocean o = new Ocean();
+		o.createEmptySea();
+		o.placeAllShipsRandomly();
+		Ship [][] temp = o.getShipArray();
+		int count = 0;
+		int expected = 4;
+		for(int i = 0; i < 9; i++) {
+			for(int j = 0; j < 9; j++) {
+				String actual = temp[i][j].getShipType();
+				if(actual.equals("Battleship")) {
+					count++;
+				}				
+			}
+		}
+		assertEquals("wrong answer", expected, count);
+	}
 	@Test
 	public void testIsOccupied() {
 		Ocean o = new Ocean();
