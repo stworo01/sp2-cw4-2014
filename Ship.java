@@ -97,14 +97,56 @@ public class Ship {
 	 */
 	public boolean okToPlaceShipAt(int row, int column, boolean horizontal,
 			Ocean ocean) {
-		//ship at row/column?
-		if(this.getShipType().equals("EmptySea")) {
-			return true;
+		boolean flagAbove = false;
+		boolean flagBellow = false;
+		boolean flagInline = false;
+		
+		// if horizontal check above and below
+		if(horizontal) {			
+			flagBellow = checkRange(row + 1, column , horizontal, ocean);
+			flagAbove = checkRange(row - 1, column , horizontal, ocean);
+			flagInline = checkRange(row, column, horizontal, ocean);
+		} else {// check to sides
+			flagBellow = checkRange(row , column + 1 , horizontal, ocean);
+			flagAbove = checkRange(row , column - 1 , horizontal, ocean);
+			flagInline = checkRange(row, column, horizontal, ocean);
 		}
-
-		return false;
+		if ( flagAbove && flagBellow && flagInline) { return true;}
+		else { return false;}
+		}
+	/**
+	 * method checks to see if a position is occupied
+	 * along a range of the array.
+	 * @param row
+	 * @param column
+	 * @param horizontal
+	 * @param ocean
+	 * @return true
+	 */
+	public boolean checkRange(int row, int column, boolean horizontal, Ocean ocean) {
+		int endRange = this.length + 1;
+		if(column <= 0) { column = column + 1;}
+		if(column >= 9) { column = column - 1;}
+		if(row <= 0) { row = row + 1;}
+		if(row >= 9) { row = row - 1;}
+		if(horizontal) {
+			// check along range
+			for(int i = column - 1; i < endRange; i ++) {
+				if(ocean.isOccupied(row, i)) {
+					return false;
+				}
+			}
+		} else { 
+			for(int j = row - 1; j < endRange; j ++) {
+				if(ocean.isOccupied(j , column)) {
+					return false;
+				}
+			}
+		}	
+		return true;
 	}
-
+	
+	
 	/**
 	 * Method that places ship at position given by parameters row, column and
 	 * orientation given by boolean horizontal. Places objects, that point to
